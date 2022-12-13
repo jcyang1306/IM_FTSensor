@@ -39,7 +39,7 @@ double AdmittanceController::computeAdmittanceRatio()
 Eigen::VectorXd AdmittanceController::computeAdmtOutput(Eigen::VectorXd F_ext)
 {
     // Control Loop
-    Eigen::VectorXd ddx_a = M_a_inv * (-M_a_inv * dx_a + F_ext);
+    Eigen::VectorXd ddx_a = M_a_inv * (-D_a * dx_a + F_ext);
 
     double Pi_tilde = dx_a.dot(F_ext);
     double Po_tilde = dx_a.dot(F_h);
